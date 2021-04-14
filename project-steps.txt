@@ -1,0 +1,17 @@
+gem 'devise'
+rails generate devise:install
+rails generate devise User
+rails db:migrate
+rails generate devise:views
+rails generate devise:views users
+__________________________________________________________________
+
+rails new private-events
+git add README.md
+git commit -m "first commit"
+
+rails generate scaffold Events
+rails generate scaffold Users
+
+resources :events, only: [:new, :create, :index]
+resources :users, only: [:new, :create, :index]
