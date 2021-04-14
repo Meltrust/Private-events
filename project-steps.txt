@@ -3,8 +3,10 @@ rails generate devise:install
 rails generate devise User
 rails db:migrate
 rails generate devise:views
-rails generate devise:views users
+
 __________________________________________________________________
+
+PROJECT: private-events
 
 rails new private-events
 git add README.md
@@ -13,5 +15,12 @@ git commit -m "first commit"
 rails generate scaffold Events
 rails generate scaffold Users
 
+ADD: Application Controller
+root 'events#index'
 resources :events, only: [:new, :create, :index]
 resources :users, only: [:new, :create, :index]
+
+INSTALL: Devise
+rails generate devise User
+rails db:migrate
+rails generate devise:views
