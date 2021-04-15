@@ -1,37 +1,42 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Events</h1>
-
 <table>
   <thead>
     <tr>
-      <th colspan="3">Name</th>
+      <th>Creator</th>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Description</th>
     </tr>
   </thead>
-
   <tbody>
     <% @events.each do |event| %>
       <tr>
+        <td><%= event.user_id %></td>
+        <td><%= event.name %></td>
+        <td><%= event.date %></td>
+        <td><%= event.location %></td>
+        <td><%= event.description %></td>
+        <br>
         <%
 =begin%>
- <td><%= link_to 'Show', event %></td> 
-<%
+        <td><%= link_to 'Show', event %></td>
+        <%
 =end%>
         <%
 =begin%>
- <td><%= link_to 'Edit', edit_event_path(event) %></td> 
-<%
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <%
 =end%>
         <%
 =begin%>
- <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
-<%
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%
 =end%>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
-
 <%= link_to 'New Event', new_event_path %>
