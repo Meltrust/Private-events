@@ -1,4 +1,19 @@
 <p id="notice"><%= notice %></p>
+<%= @user.name %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%
+=begin%>
+ <tbody>
+    <% @users.each do |user| %>
+    user.name
+      <tr></tr>
+<% end %> 
+<%
+=end%>
+
+<%
+=begin%>
+ <%= link_to 'Edit', edit_user_path(@user) %> | 
+<%
+=end%>
 <%= link_to 'Back', users_path %>

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy ]
+  # before_action :set_event, only: %i[ show edit update destroy ]
 
   # GET /events or /events.json
   def index
@@ -8,6 +8,8 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    @event = Event.find(params[:id])
+    @creator = Event.find(params[:id]).creator
   end
 
   # GET /events/new
@@ -21,7 +23,9 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.new(event_params)
+    
+    # @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     respond_to do |format|
       if @event.save
@@ -64,6 +68,8 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.fetch(:event, {})
+      # params.fetch(:event, {:name, :location, :description, :date})
+      params.require(:event).permit(:name, :location, :description, :date, :user_id)
+      # params.require(:post).permit(:title, :body)
     end
 end

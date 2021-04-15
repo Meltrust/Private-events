@@ -24,3 +24,7 @@ MIGRATIONS:
 ADD: name to User
 ADD: name, date, location, description to Events
 
+FORMS:
+ADD: Name, Date, Location, Description to _form partial (Event)
+ADD: Name to _form partial (User)
+
