@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'events#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
 
   resources :events, only: %i[show new create index]
   resources :users, only: %i[show new create index]

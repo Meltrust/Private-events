@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
+    @username = current_user.name if logged_in?
     @events_past = Event.past.all
     @events_upcoming = Event.upcoming.all
   end
