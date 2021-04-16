@@ -20,7 +20,12 @@
   <tbody>
     <% @events_past.each do |event| %>
       <tr>
-        <td><%= event.user_id %></td>
+        <%
+=begin%>
+ <td><%= event.user_id %></td> 
+<%
+=end%>
+        <td><%= creator(event.user_id) %></td>
         <td><%= event.name %></td>
         <td><%= event.date %></td>
         <td><%= event.location %></td>
@@ -46,7 +51,12 @@
   <tbody>
     <% @events_upcoming.each do |event| %>
       <tr>
-        <td><%= event.user_id %></td>
+        <%
+=begin%>
+ <td><%= event.user_id %></td> 
+<%
+=end%>
+        <td><%= creator(event.user_id) %></td>
         <td><%= event.name %></td>
         <td><%= event.date %></td>
         <td><%= event.location %></td>
