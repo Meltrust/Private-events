@@ -3,6 +3,9 @@
 <table>
   <thead>
     <tr>
+      <th>Past Events</th>
+    </tr>
+    <tr>
       <th>Creator</th>
       <th>Event</th>
       <th>Date</th>
@@ -11,32 +14,58 @@
     </tr>
   </thead>
   <tbody>
-    <% @events.each do |event| %>
+    <% @events_past.each do |event| %>
       <tr>
         <td><%= event.user_id %></td>
         <td><%= event.name %></td>
         <td><%= event.date %></td>
         <td><%= event.location %></td>
         <td><%= event.description %></td>
-        <br>
-        <%
-=begin%>
-        <td><%= link_to 'Show', event %></td>
-        <%
-=end%>
-        <%
-=begin%>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <%
-=end%>
-        <%
-=begin%>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%
-=end%>
       </tr>
+      <br>
     <% end %>
   </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th>Upcoming Events</th>
+    </tr>
+    <tr>
+      <th>Creator</th>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events_upcoming.each do |event| %>
+      <tr>
+        <td><%= event.user_id %></td>
+        <td><%= event.name %></td>
+        <td><%= event.date %></td>
+        <td><%= event.location %></td>
+        <td><%= event.description %></td>
+      </tr>
+      <br>
+    <% end %>
+  </tbody>
+  <%
+=begin%>
+  <td><%= link_to 'Show', event %></td>
+  <%
+=end%>
+  <%
+=begin%>
+  <td><%= link_to 'Edit', edit_event_path(event) %></td>
+  <%
+=end%>
+  <%
+=begin%>
+  <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <%
+=end%>
 </table>
 <br>
 <%= link_to 'New Event', new_event_path %>
