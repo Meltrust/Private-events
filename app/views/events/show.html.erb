@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
-<%= @creator.name %>
-<%= @event.name %>
-<%= @event.date %>
-<%= @event.location %>
-<%= @event.description %>
-
-
-<%= link_to 'Back', events_path %>
+<strong>Creator: </strong> <%= @creator.name %> <br>
+<br>
+<strong>Event name: </strong> <%= @event.name %> <br>
+<strong>Date: </strong> <%= @event.date %> <br>
+<strong>Location: </strong><%= @event.location %><br>
+<strong>Description: </strong><%= @event.description %>
+<br>
+<br>
+<%= link_to 'Back to events home', root_path %>

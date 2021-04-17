@@ -7,7 +7,9 @@
 <table>
   <thead>
     <tr>
-      <th>Past Events</th>
+      <th>
+        <h2>Past Events</h2>
+      </th>
     </tr>
     <tr>
       <th>Creator</th>
@@ -22,8 +24,8 @@
       <tr>
         <%
 =begin%>
- <td><%= event.user_id %></td> 
-<%
+        <td><%= event.user_id %></td>
+        <%
 =end%>
         <td><%= creator(event.user_id) %></td>
         <td><%= event.name %></td>
@@ -38,7 +40,9 @@
 <table>
   <thead>
     <tr>
-      <th>Upcoming Events</th>
+      <th>
+        <h2>Upcoming Events</h2>
+      </th>
     </tr>
     <tr>
       <th>Creator</th>
@@ -53,8 +57,8 @@
       <tr>
         <%
 =begin%>
- <td><%= event.user_id %></td> 
-<%
+        <td><%= event.user_id %></td>
+        <%
 =end%>
         <td><%= creator(event.user_id) %></td>
         <td><%= event.name %></td>
@@ -82,4 +86,4 @@
 =end%>
 </table>
 <br>
-<%= link_to 'New Event', new_event_path %>
+<%= logged_in? ? (link_to 'New Event', new_event_path) : (link_to 'New Event', login_path) %>
