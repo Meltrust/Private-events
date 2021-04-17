@@ -1,10 +1,19 @@
 <p id="notice"><%= notice %></p>
-<strong>Creator: </strong> <%= @creator.name %> <br>
+<h2>Event name: <%= @event.name %><br></h2>
 <br>
-<strong>Event name: </strong> <%= @event.name %> <br>
+<strong>Creator: </strong> <%= @creator.name %> <br>
 <strong>Date: </strong> <%= @event.date %> <br>
 <strong>Location: </strong><%= @event.location %><br>
 <strong>Description: </strong><%= @event.description %>
+
+<br>
+<h3>Attendees: </h3>
+
+<%
+=begin%>
+ <%= button_to "Enroll", enrollment_path(event_id: @event.id), method: :post %> 
+<%
+=end%>
 <br>
 <br>
 <%= link_to 'Back to events home', root_path %>
