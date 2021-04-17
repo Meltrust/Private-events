@@ -9,11 +9,9 @@
 <br>
 <h3>Attendees: </h3>
 
-<%
-=begin%>
- <%= button_to "Enroll", enrollment_path(event_id: @event.id), method: :post %> 
-<%
-=end%>
+<br>
+<%= button_to "Enroll", enrollment_path(event_id: @event.id, user_id: current_user.id), method: :post %>
+
 <br>
 <br>
 <%= link_to 'Back to events home', root_path %>
