@@ -7,7 +7,12 @@
     <br>
     <div class="actions">
       <%= f.submit "Sign In" %>
-      <br/><br/>SIGN UP HERE: <%= link_to 'New User', new_user_path %>
+      <br/>
+      <br/>
+      Not registered yet? <br>
+      <%= link_to 'Sign up here', new_user_path %> <br>
+      <br>
+      <%= link_to 'Back to events', events_path %>
     </div>
   <%end%>
 </div>

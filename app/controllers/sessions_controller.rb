@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       login(user)
       redirect_to root_path
     else
-      flash.now[:notice] = 'Invalid name'
+      flash.now[:notice] = 'User does not exist!'
       render :new
     end
   end
