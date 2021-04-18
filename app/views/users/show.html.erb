@@ -1,62 +1,52 @@
 <p id="notice"><%= notice %></p>
-<h1><%= @user.name %>'s events</h1>
+<h2><%= @user.name %>'s events</h2>
+<hr>
 <table>
-  <thead>
-    <tr>
-      <th>
-        <h2>Past Events</h2>
-      </th>
-    </tr>
-    <tr>
-      <th>Event ID</th>
-      <th>Event</th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @user.events.past.each do |event| %>
-      <tr>
-        <td><%= event.id %></td>
-        <td><%= event.name %></td>
-        <td><%= event.date %></td>
-        <td><%= event.location %></td>
-        <td><%= event.description %></td>
-      </tr>
-    <% end %>
-    <br>
-  </tbody>
-  <thead>
-    <tr>
-      <th>
-        <h2>Upcoming Events</h2>
-      </th>
-    </tr>
-    <tr>
-      <th>Event ID</th>
-      <th>Event</th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @user.events.upcoming.each do |event| %>
-      <tr>
-        <td><%= event.id %></td>
-        <td><%= event.name %></td>
-        <td><%= event.date %></td>
-        <td><%= event.location %></td>
-        <td><%= event.description %></td>
-      </tr>
-    <% end %>
-    <br>
-  </tbody>
-  <%
-=begin%>
-  <%= link_to 'Edit', edit_user_path(@user) %> | 
-  <%
-=end%>
+    <thead>
+        <h3>Hosted Events:</h3>
+        <tr>
+            <th>Event ID</th>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @user.events.each do |event| %>
+        <tr>
+            <td><%= event.id %></td>
+            <td><%= event.name %></td>
+            <td><%= event.date %></td>
+            <td><%= event.location %></td>
+            <td><%= event.description %></td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
+<hr />
+<table>
+    <thead>
+        <h3>Attending/Attended Events:</h3>
+        <tr>
+            <th>Event ID</th>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @user.attended_events.each do |event| %>
+        <tr>
+            <td><%= event.id %></td>
+            <td><%= event.name %></td>
+            <td><%= event.date %></td>
+            <td><%= event.location %></td>
+            <td><%= event.description %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<hr>
 <%= link_to 'Back', events_path %>

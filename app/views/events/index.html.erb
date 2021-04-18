@@ -1,90 +1,63 @@
 <p id="notice"><%= notice %></p>
-
-<% if @username %>
-<h2><%= @username  %></h2>
-<%= link_to 'My Events', user_path(@current_user.id) %>
-<% end %>
-
-<%= link_to 'Login', login_path unless logged_in? %>
-<%= link_to 'New User', new_user_path unless logged_in? %>
-<%= link_to 'Logout', logout_path if logged_in? %>
 <h1>Events</h1>
-<table>
-    <thead>
-        <tr>
-            <th>
-                <h2>Past Events</h2>
-            </th>
-        </tr>
-        <tr>
-            <th>Creator</th>
-            <th>Event</th>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @events_past.each do |event| %>
-        <tr>
-            <%
-=begin%>
-            <td><%= event.user_id %></td>
-            <%
-=end%>
-            <td><%= creator(event.user_id) %></td>
-            <td><%= link_to event.name, event %></td>
-            <td><%= event.date %></td>
-            <td><%= event.location %></td>
-            <td><%= event.description %></td>
-        </tr>
-        <br>
-        <% end %>
-    </tbody>
-</table>
-<table>
-    <thead>
-        <tr>
-            <th>
-                <h2>Upcoming Events</h2>
-            </th>
-        </tr>
-        <tr>
-            <th>Creator</th>
-            <th>Event</th>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @events_upcoming.each do |event| %>
-        <tr>
-            <td><%= creator(event.user_id) %></td>
-            <td><%= link_to event.name, event %></td>
-            <td><%= event.date %></td>
-            <td><%= event.location %></td>
-            <td><%= event.description %></td>
-            <td><%= logged_in? ? (button_to "Enroll", enrollment_path(event_id: event.id, user_id: current_user.id), method: :post) : "" %></td>
-        </tr>
-        <br>
-        <% end %>
-    </tbody>
-    <%
-=begin%>
-    <td><%= link_to 'Show', event %></td>
-    <%
-=end%>
-    <%
-=begin%>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <%
-=end%>
-    <%
-=begin%>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <%
-=end%>
-</table>
-<br>
-<%= logged_in? ? (link_to 'New Event', new_event_path) : (link_to 'New Event', login_path) %>
+<% if @username %>
+<strong><%= @username  %></strong>, here is a list of events you can attend.
+    <%= link_to 'My Events', user_path(@current_user.id) %>
+    <% end %>
+    <%= link_to 'Login', login_path unless logged_in? %>
+    <%= link_to 'New User', new_user_path unless logged_in? %>
+    <%= link_to 'Logout', logout_path if logged_in? %>
+
+    <hr>
+    <table>
+        <thead>
+            <h3>Past Events</h3>
+            <tr>
+                <th>Creator</th>
+                <th>Event</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @events_past.each do |event| %>
+            <tr>
+                <td><%= creator(event.user_id) %></td>
+                <td><%= link_to event.name, event %></td>
+                <td><%= event.date %></td>
+                <td><%= event.location %></td>
+                <td><%= event.description %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <hr>
+
+    <table>
+        <h3>Upcoming Events</h3>
+        <thead>
+            <tr>
+                <th>Creator</th>
+                <th>Event</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @events_upcoming.each do |event| %>
+            <tr>
+                <td><%= creator(event.user_id) %></td>
+                <td><%= link_to event.name, event %></td>
+                <td><%= event.date %></td>
+                <td><%= event.location %></td>
+                <td><%= event.description %></td>
+                <td><%= logged_in? ? (button_to "Enroll", enrollment_path(event_id: event.id, user_id: current_user.id), method: :post) : "" %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <hr>
+    <%= logged_in? ? (link_to 'New Event', new_event_path) : (link_to 'New Event', login_path) %>
