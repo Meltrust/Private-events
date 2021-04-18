@@ -9,9 +9,7 @@
 <br>
 <h3>Attendees: </h3>
 <% @event.attendees.each do |attendee| %>
-  <%= attendee.name %>
-  <br>
-  <br>
+<%= attendee.name+"," %>
 <% end %>
 <br>
 <br>

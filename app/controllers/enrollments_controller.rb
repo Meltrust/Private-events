@@ -4,8 +4,6 @@ class EnrollmentsController < ApplicationController
   def create
     event = Event.find(params[:event_id])
     enrollment = Enrollment.new(event_id: event.id, user_id: params[:user_id])
-    p enrollment
-
     if enrollment.save
       flash[:notice] = "Enrolled Successfully!"
       redirect_to events_path(event_id: event.id)
