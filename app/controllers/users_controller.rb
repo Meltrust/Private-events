@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    @events_past = Event.past.all
+    @events_upcoming = Event.upcoming.all
   end
 
   # GET /users/1 or /users/1.json

@@ -3,6 +3,11 @@
 <table>
   <thead>
     <tr>
+      <th>
+        <h2>Past Events</h2>
+      </th>
+    </tr>
+    <tr>
       <th>Event ID</th>
       <th>Event</th>
       <th>Date</th>
@@ -11,7 +16,33 @@
     </tr>
   </thead>
   <tbody>
-    <% @user.events.each do |event| %>
+    <% @user.events.past.each do |event| %>
+      <tr>
+        <td><%= event.id %></td>
+        <td><%= event.name %></td>
+        <td><%= event.date %></td>
+        <td><%= event.location %></td>
+        <td><%= event.description %></td>
+      </tr>
+    <% end %>
+    <br>
+  </tbody>
+  <thead>
+    <tr>
+      <th>
+        <h2>Upcoming Events</h2>
+      </th>
+    </tr>
+    <tr>
+      <th>Event ID</th>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.events.upcoming.each do |event| %>
       <tr>
         <td><%= event.id %></td>
         <td><%= event.name %></td>
