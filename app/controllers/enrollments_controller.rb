@@ -3,7 +3,6 @@ class EnrollmentsController < ApplicationController
     event = Event.find(params[:event_id])
     if Enrollment.where(event_id: event.id, user_id: params[:user_id]).count.positive?
       flash[:notice] = 'Already Enrolled For this Event!'
-      # redirect_to event_path(event)
       redirect_to event_path(event)
     else
       enrollment = Enrollment.new(event_id: event.id, user_id: params[:user_id])
