@@ -27,7 +27,7 @@
 <hr />
 <table>
     <thead>
-        <h3>Attending/Attended Events:</h3>
+        <h3><span style="color: red;">Past Events:</span></h3>
         <tr>
             <th>Event ID</th>
             <th>Event</th>
@@ -37,14 +37,41 @@
         </tr>
     </thead>
     <tbody>
-        <% @user.attended_events.each do |event| %>
+        <% @user.attended_events.sort_by(&:date).each do |event| %>
+            <% if event.date <= Date.today %>
+            <tr>
+                <td><%= event.id %></td>
+                <td><%= link_to event.name, event %></td>
+                <td><%= event.date %></td>
+                <td><%= event.location %></td>
+                <td><%= event.description %></td>
+            </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
+<table>
+    <thead>
+        <h3><span style="color: green;">Upcoming Events</span></h3>
         <tr>
-            <td><%= event.id %></td>
-            <td><%= event.name %></td>
-            <td><%= event.date %></td>
-            <td><%= event.location %></td>
-            <td><%= event.description %></td>
+            <th>Event ID</th>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Description</th>
         </tr>
+    </thead>
+    <tbody>
+        <% @user.attended_events.sort_by(&:date).each do |event| %>
+            <% if event.date > Date.today %>
+            <tr>
+                <td><%= event.id %></td>
+                <td><%= link_to event.name, event %></td>
+                <td><%= event.date %></td>
+                <td><%= event.location %></td>
+                <td><%= event.description %></td>
+            </tr>
+            <% end %>
         <% end %>
     </tbody>
 </table>
