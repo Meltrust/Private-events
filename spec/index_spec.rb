@@ -10,5 +10,9 @@ RSpec.describe 'index', type: :system do
       visit events_path
       expect(page).to have_content('Upcoming Events')
     end
+    it 'Needs to Login to Attend Events' do
+      visit events_path
+      expect(page).to_not have_content('Enroll')
+    end
   end
 end
