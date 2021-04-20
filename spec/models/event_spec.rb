@@ -1,7 +1,3 @@
-require 'rails_helper'
-# require 'app\models\event.rb'
-# require 'app\models\user'
-
 RSpec.describe Event, type: :model do
   let(:name) { 'simple name' }
   describe 'An event can be created by a user and if it has all the validations' do

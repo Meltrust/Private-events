@@ -1,6 +1,3 @@
-require_relative 'rails_helper'
-require_relative 'app\models\user'
-
 RSpec.describe User, type: :model do
   describe 'A user can be created' do
     let(:name) { 'simple name' }
