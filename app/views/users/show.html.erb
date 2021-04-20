@@ -16,7 +16,7 @@
         <% @user.events.each do |event| %>
         <tr>
             <td><%= event.id %></td>
-            <td><%= event.name %></td>
+            <td><%= link_to event.name, event %></td>
             <td><%= event.date %></td>
             <td><%= event.location %></td>
             <td><%= event.description %></td>
@@ -38,15 +38,15 @@
     </thead>
     <tbody>
         <% @user.attended_events.sort_by(&:date).each do |event| %>
-            <% if event.date <= Date.today %>
-            <tr>
-                <td><%= event.id %></td>
-                <td><%= link_to event.name, event %></td>
-                <td><%= event.date %></td>
-                <td><%= event.location %></td>
-                <td><%= event.description %></td>
-            </tr>
-            <% end %>
+        <% if event.date <= Date.today %>
+        <tr>
+            <td><%= event.id %></td>
+            <td><%= link_to event.name, event %></td>
+            <td><%= event.date %></td>
+            <td><%= event.location %></td>
+            <td><%= event.description %></td>
+        </tr>
+        <% end %>
         <% end %>
     </tbody>
 </table>
@@ -63,15 +63,15 @@
     </thead>
     <tbody>
         <% @user.attended_events.sort_by(&:date).each do |event| %>
-            <% if event.date > Date.today %>
-            <tr>
-                <td><%= event.id %></td>
-                <td><%= link_to event.name, event %></td>
-                <td><%= event.date %></td>
-                <td><%= event.location %></td>
-                <td><%= event.description %></td>
-            </tr>
-            <% end %>
+        <% if event.date > Date.today %>
+        <tr>
+            <td><%= event.id %></td>
+            <td><%= link_to event.name, event %></td>
+            <td><%= event.date %></td>
+            <td><%= event.location %></td>
+            <td><%= event.description %></td>
+        </tr>
+        <% end %>
         <% end %>
     </tbody>
 </table>
