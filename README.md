@@ -20,18 +20,18 @@
 ### Getting Started
 #### Model generated:
 - User Authentication
- - Signup
- - Login
+  - Signup
+  - Login
 - Events
- - View Events
+  - View Events
+    - Past Events
+    - Upcoming Events
+  - Attend Events
+  - Create New Event
+- User Views
+  - Hosted Events
   - Past Events
   - Upcoming Events
- - Attend Events
- - Create New Event
-- User Views
- - Hosted Events
- - Past Events
- - Upcoming Events
 - User Logout
   - Cannot Attend Events
   - Cannot Create a New Event
