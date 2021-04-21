@@ -79,7 +79,7 @@ Contributions, issues, and feature requests are welcome!
 ## Show your support
 Give a ⭐️ if you like this project!
 ## Acknowledgments
-- [Micoverse team](https://microverse.pathwright.com/library/fast-track-curriculum/69047/path/step/49723079/)
+- [Micoverse team](https://www.microverse.org/)
 
 ## 📝 License
 This project is [MIT](LICENSE) licensed.
