@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<br>
+Would you like to HOST an Event? <%= new_event %>
+<br>
+<%= events_all %> <br>
+<h2>Event name: <%= @event.name %></h2>
+<strong>Creator: </strong> <%= @creator.name %> <br>
+<strong>Date: </strong> <%= @event.date %> <br>
+<strong>Location: </strong><%= @event.location %><br>
+<strong>Description: </strong><%= @event.description %>
+<br>
+<h3>Attendees: </h3>
+<%= attendees_list %>
+<br>
+<br>
+<%= enroll_button %>
+<br>
