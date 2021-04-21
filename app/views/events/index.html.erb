@@ -1,17 +1,17 @@
     <h1>Private Events</h1>
-    <nav>
-        <% if @username %>
-        <strong><%= @username  %></strong>, here is a list of events you can attend.
-        <%= link_to 'My Events', user_path(@current_user.id) %>
-        <% end %>
-        <%= link_to 'Logout', logout_path if logged_in? %>
-        <br><br>
-        <%= link_to 'Login', login_path unless logged_in? %>
-        <%= link_to 'New User', new_user_path unless logged_in? %>
-    </nav>
     <hr>
+    <nav>
+      <% if @username %>
+      <strong><%= @username  %></strong>, here is a list of events you can attend.
+      <%= my_events_link %>
+      <% end %>
+      <%= logout_link %>
+      <%= login_link %>
+      <%= new_user_link %>
+    </nav>
+
     <p id="notice"><%= notice %></p>
-    Would you like to HOST an Event? <%= logged_in? ? (link_to 'New Event', new_event_path) : (link_to 'New Event', login_path) %>
+    Would you like to HOST an Event? <%= new_event %>
     <hr>
     <table>
         <thead>
@@ -58,7 +58,7 @@
                 <td><%= event.date %></td>
                 <td><%= event.location %></td>
                 <td><%= event.description %></td>
-                <td><%= logged_in? ? (button_to "Enroll", enrollment_path(event_id: event.id, user_id: current_user.id), method: :post) : "" %></td>
+                <td><%= enroll_upcoming_events(event) %></td>
             </tr>
             <% end %>
         </tbody>
