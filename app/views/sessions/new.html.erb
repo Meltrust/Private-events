@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
+<br>
+<%= link_to 'Sign up here', new_user_path %> &nbsp
+<%= link_to 'Back to events', events_path %>
 <h1>Login</h1>
 <div>
   <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name, placeholder: "Name"%>
     <br>
+    <br>
     <div class="actions">
       <%= f.submit "Sign In" %>
       <br/>
       <br/>
-      Not registered yet? <br>
-      <%= link_to 'Sign up here', new_user_path %> <br>
-      <br>
-      <%= link_to 'Back to events', events_path %>
     </div>
   <%end%>
 </div>

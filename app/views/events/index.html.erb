@@ -1,66 +1,64 @@
-    <h1>Private Events</h1>
-    <hr>
-    <nav>
-      <% if @username %>
-      <strong><%= @username  %></strong>, here is a list of events you can attend.
-      <%= my_events_link %>
-      <% end %>
-      <%= logout_link %>
-      <%= login_link %>
-      <%= new_user_link %>
-    </nav>
-
-    <p id="notice"><%= notice %></p>
-    Would you like to HOST an Event? <%= new_event %>
-    <hr>
-    <table>
-        <thead>
-            <h3><span style="color: red;">Past Events</span></h3>
-            <tr>
-                <th>Creator</th>
-                <th>Event</th>
-                <th>Date</th>
-                <th>Location</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @events_past.sort_by(&:date).each do |event| %>
-            <tr>
-                <td><%= creator(event.user_id) %></td>
-                <td><%= link_to event.name, event %></td>
-                <td><%= event.date %></td>
-                <td><%= event.location %></td>
-                <td><%= event.description %></td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
-    <hr>
-
-    <table>
-        <h3><span style="color: green;">Upcoming Events</span></h3>
-        <thead>
-            <tr>
-                <th>Creator</th>
-                <th>Event</th>
-                <th>Date</th>
-                <th>Location</th>
-                <th>Description</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @events_upcoming.sort_by(&:date).each do |event| %>
-            <tr>
-                <td><%= creator(event.user_id) %></td>
-                <td><%= link_to event.name, event %></td>
-                <td><%= event.date %></td>
-                <td><%= event.location %></td>
-                <td><%= event.description %></td>
-                <td><%= enroll_upcoming_events(event) %></td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
-    <hr>
+<br>
+<% if @username %>
+  <strong><%= @username  %></strong><br>
+  <%= my_events_link %>
+<% end %>
+<%= login_link %>&nbsp
+<%= new_user_link %>&nbsp
+<%= logout_link %>&nbsp
+<%= new_event %>&nbsp
+</nav>
+<h1>Private Events</h1>
+<hr>
+<p id="notice"><%= notice %></p>
+<hr>
+<table>
+  <thead>
+    <h3><span style="color: red;">Past Events</span></h3>
+    <tr>
+      <th>Creator</th>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events_past.sort_by(&:date).each do |event| %>
+      <tr>
+        <td><%= creator(event.user_id) %></td>
+        <td><%= link_to event.name, event %></td>
+        <td><%= event.date %></td>
+        <td><%= event.location %></td>
+        <td><%= event.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<hr>
+<table>
+  <h3><span style="color: green;">Upcoming Events</span></h3>
+  <thead>
+    <tr>
+      <th>Creator</th>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events_upcoming.sort_by(&:date).each do |event| %>
+      <tr>
+        <td><%= creator(event.user_id) %></td>
+        <td><%= link_to event.name, event %></td>
+        <td><%= event.date %></td>
+        <td><%= event.location %></td>
+        <td><%= event.description %></td>
+        <td><%= enroll_upcoming_events(event) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<hr>

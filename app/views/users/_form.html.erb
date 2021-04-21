@@ -2,7 +2,6 @@
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
         <% user.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,9 +9,9 @@
       </ul>
     </div>
   <% end %>
-
   <%= f.label :name %>
   <%= f.text_field :name, placeholder: "Name"%>
+  <br>
   <br>
   <div class="actions">
     <%= f.submit "Sign Up" %>

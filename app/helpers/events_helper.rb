@@ -22,7 +22,7 @@ module EventsHelper
   end
 
   def new_event
-    logged_in? ? (link_to 'New Event', new_event_path) : (link_to 'New Event', login_path)
+    logged_in? ? (link_to 'Host New Event', new_event_path) : (link_to 'Host New Event', login_path)
   end
 
   def my_events_link
@@ -42,6 +42,6 @@ module EventsHelper
   end
 
   def events_all
-    link_to 'All Events', root_path
+    link_to 'Back to All Events', root_path
   end
 end

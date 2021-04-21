@@ -1,85 +1,87 @@
 <p id="notice"><%= notice %></p>
-<h2><%= @user.name %>'s events</h2> 
-Would you like to HOST an Event? <%= new_event %>
+<br>
+Would you like to HOST an Event? <%= new_event %><br>
 <%= events_all %>
-<hr><table>
-    <thead>
-        <h3>Hosted Events</h3>
-        <tr>
-            <th>Event ID</th>
-            <th>Event</th>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Description</th>
-            <th>Attendees</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @user.events.each do |event| %>
-        <tr>
-            <td><%= event.id %></td>
-            <td><%= link_to event.name, event %></td>
-            <td><%= event.date %></td>
-            <td><%= event.location %></td>
-            <td><%= event.description %></td>
-            <td><%= attendees_list(event) %></td>
-        </tr>
-        <% end %>
-    </tbody>
+<h2><%= @user.name %>'s events</h2>
+<hr>
+<table>
+  <thead>
+    <h3>Hosted Events</h3>
+    <tr>
+      <th>Event ID</th>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th>Attendees</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.events.each do |event| %>
+      <tr>
+        <td><%= event.id %></td>
+        <td><%= link_to event.name, event %></td>
+        <td><%= event.date %></td>
+        <td><%= event.location %></td>
+        <td><%= event.description %></td>
+        <td><%= attendees_list(event) %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 <hr />
 <table>
-    <thead>
-        <h3><span style="color: red;">Past Events</span></h3>
+  <thead>
+    <h3><span style="color: red;">Past Events</span></h3>
+    <tr>
+      <th>Event ID</th>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th>Attendees</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.attended_events.sort_by(&:date).each do |event| %>
+      <% if event.date <= Date.today %>
         <tr>
-            <th>Event ID</th>
-            <th>Event</th>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Description</th>
-            <th>Attendees</th>
+          <td><%= event.id %></td>
+          <td><%= link_to event.name, event %></td>
+          <td><%= event.date %></td>
+          <td><%= event.location %></td>
+          <td><%= event.description %></td>
+          <td><%= attendees_list(event) %></td>
         </tr>
-    </thead>
-    <tbody>
-        <% @user.attended_events.sort_by(&:date).each do |event| %>
-        <% if event.date <= Date.today %>
-        <tr>
-            <td><%= event.id %></td>
-            <td><%= link_to event.name, event %></td>
-            <td><%= event.date %></td>
-            <td><%= event.location %></td>
-            <td><%= event.description %></td>
-            <td><%= attendees_list(event) %></td>
-        </tr>
-        <% end %>
-        <% end %>
-    </tbody>
+      <% end %>
+    <% end %>
+  </tbody>
 </table>
 <table>
-    <thead>
-        <h3><span style="color: green;">Upcoming Events</span></h3>
+  <thead>
+    <h3><span style="color: green;">Upcoming Events</span></h3>
+    <tr>
+      <th>Event ID</th>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th>Attendees</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.attended_events.sort_by(&:date).each do |event| %>
+      <% if event.date > Date.today %>
         <tr>
-            <th>Event ID</th>
-            <th>Event</th>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Description</th>
-            <th>Attendees</th>
+          <td><%= event.id %></td>
+          <td><%= link_to event.name, event %></td>
+          <td><%= event.date %></td>
+          <td><%= event.location %></td>
+          <td><%= event.description %></td>
+          <td><%= attendees_list(event) %></td>
         </tr>
-    </thead>
-    <tbody>
-        <% @user.attended_events.sort_by(&:date).each do |event| %>
-        <% if event.date > Date.today %>
-        <tr>
-            <td><%= event.id %></td>
-            <td><%= link_to event.name, event %></td>
-            <td><%= event.date %></td>
-            <td><%= event.location %></td>
-            <td><%= event.description %></td>
-            <td><%= attendees_list(event) %></td>
-        </tr>
-        <% end %>
-        <% end %>
-    </tbody>
+      <% end %>
+    <% end %>
+  </tbody>
 </table>
 <hr>
