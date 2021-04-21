@@ -1,12 +1,11 @@
 <br>
-<% if @username %>
-  <strong><%= @username  %></strong><br>
-  <%= my_events_link %>
-<% end %>
-<%= login_link %>&nbsp
-<%= new_user_link %>&nbsp
-<%= logout_link %>&nbsp
-<%= new_event %>&nbsp
+<nav>
+  <%= my_events_link %>&nbsp
+  <%= login_link %>&nbsp
+  <%= new_user_link %>&nbsp
+  <%= new_event %>&nbsp
+  <%= logout_link %>&nbsp
+  <h3><%= username_if_logged %></h3>
 </nav>
 <h1>Private Events</h1>
 <hr>
@@ -62,3 +61,4 @@
   </tbody>
 </table>
 <hr>
+<br>

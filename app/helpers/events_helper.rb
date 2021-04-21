@@ -26,7 +26,7 @@ module EventsHelper
   end
 
   def my_events_link
-    link_to 'My Events', user_path(@current_user.id)
+    link_to 'My Events', user_path(@current_user.id) if logged_in?
   end
 
   def logout_link
@@ -43,5 +43,9 @@ module EventsHelper
 
   def events_all
     link_to 'Back to All Events', root_path
+  end
+
+  def username_if_logged
+    @username if logged_in?
   end
 end

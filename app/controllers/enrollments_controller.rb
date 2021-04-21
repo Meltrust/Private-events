@@ -8,10 +8,8 @@ class EnrollmentsController < ApplicationController
       enrollment = Enrollment.new(event_id: event.id, user_id: params[:user_id])
       if enrollment.save
         flash[:notice] = 'Enrolled Successfully!'
-        redirect_to events_path(event_id: event.id)
-      else
-        flash[:notice] = 'Ooops! Something went wrong...'
         redirect_to event_path(event)
+
       end
     end
   end
