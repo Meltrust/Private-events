@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
-<h2><%= @user.name %>'s events</h2>
+<h2><%= @user.name %>'s events</h2> 
 Would you like to HOST an Event? <%= new_event %>
+<%= events_all %>
 <hr><table>
     <thead>
         <h3>Hosted Events</h3>
@@ -10,6 +11,7 @@ Would you like to HOST an Event? <%= new_event %>
             <th>Date</th>
             <th>Location</th>
             <th>Description</th>
+            <th>Attendees</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +22,7 @@ Would you like to HOST an Event? <%= new_event %>
             <td><%= event.date %></td>
             <td><%= event.location %></td>
             <td><%= event.description %></td>
+            <td><%= attendees_list(event) %></td>
         </tr>
         <% end %>
     </tbody>
@@ -34,6 +37,7 @@ Would you like to HOST an Event? <%= new_event %>
             <th>Date</th>
             <th>Location</th>
             <th>Description</th>
+            <th>Attendees</th>
         </tr>
     </thead>
     <tbody>
@@ -45,6 +49,7 @@ Would you like to HOST an Event? <%= new_event %>
             <td><%= event.date %></td>
             <td><%= event.location %></td>
             <td><%= event.description %></td>
+            <td><%= attendees_list(event) %></td>
         </tr>
         <% end %>
         <% end %>
@@ -59,6 +64,7 @@ Would you like to HOST an Event? <%= new_event %>
             <th>Date</th>
             <th>Location</th>
             <th>Description</th>
+            <th>Attendees</th>
         </tr>
     </thead>
     <tbody>
@@ -70,10 +76,10 @@ Would you like to HOST an Event? <%= new_event %>
             <td><%= event.date %></td>
             <td><%= event.location %></td>
             <td><%= event.description %></td>
+            <td><%= attendees_list(event) %></td>
         </tr>
         <% end %>
         <% end %>
     </tbody>
 </table>
 <hr>
-<%= link_to 'Back', events_path %>
