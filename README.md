@@ -6,8 +6,8 @@
 
 #### Highlight: Users->Attending Multiple Events & Events->Attended by Multiple Users.
 
-![DESIGN](Data_Entities_Relationships.png)
-![TESTS](rSpecCapybaratests.png)
+![DESIGN](docs/Data_Entities_Relationships.png)
+![TESTS](docs/rSpecCapybaratests.png)
 
 ### Built With
 
